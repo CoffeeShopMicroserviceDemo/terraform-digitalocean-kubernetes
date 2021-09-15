@@ -5,6 +5,7 @@ resource "digitalocean_project" "do_project" {
 resource "digitalocean_project_resources" "do_project_resources" {
   project = digitalocean_project.do_project.id
   resources = ["do:kubernetes:${digitalocean_kubernetes_cluster.k8s.id}"]
+  depends_on = [digitalocean_project.do_project, digitalocean_kubernetes_cluster.k8s]
 }
 
 resource "digitalocean_kubernetes_cluster" "k8s" {
@@ -25,5 +26,7 @@ resource "digitalocean_kubernetes_node_pool" "k8s_nodes" {
   name       = var.do_k8s_nodepool_name
   size       = var.do_k8s_nodepool_type
   node_count = var.do_k8s_nodepool_size
+
+  depends_on = [digitalocean_kubernetes_cluster.k8s]
 }
 
