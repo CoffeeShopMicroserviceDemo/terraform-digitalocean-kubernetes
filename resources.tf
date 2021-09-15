@@ -10,7 +10,7 @@ resource "digitalocean_project_resources" "do_project_resources" {
 resource "digitalocean_kubernetes_cluster" "k8s" {
   name    = var.do_k8s_name
   region  = var.do_region
-  version = var.do_k8s_version
+  version = data.digitalocean_kubernetes_versions.do_k8s_versions.latest_version
 
   node_pool {
     name       = var.do_k8s_pool_name

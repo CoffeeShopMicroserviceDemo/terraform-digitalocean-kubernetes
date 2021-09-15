@@ -52,18 +52,6 @@ variable "do_k8s_nodepool_size" {
   default     = 2
 }
 
-variable "do_k8s_version" {
-  description = "Digital Ocean Kubernetes version"
-  type = string
-  default = "1.21.2-do.2"
-}
-
-variable "do_version" {
-  description = "Digital Ocean version"
-  type = string
-  default = "2.11.1"
-}
-
 variable "do_project_name" {
   description = "Digital Ocean project name"
   type = string
