@@ -4,7 +4,7 @@ resource "digitalocean_project" "do_project" {
 
 resource "digitalocean_project_resources" "do_project_resources" {
   project = digitalocean_project.do_project.id
-  resources = [digitalocean_kubernetes_cluster.k8s.id]
+  resources = ["do:kubernetes:${digitalocean_kubernetes_cluster.k8s.id}"]
 }
 
 resource "digitalocean_kubernetes_cluster" "k8s" {
