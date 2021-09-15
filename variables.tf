@@ -63,3 +63,9 @@ variable "do_version" {
   type = string
   default = "2.11.1"
 }
+
+variable "do_project_name" {
+  description = "Digital Ocean project name"
+  type = string
+  default = "coffee-shop"
+}

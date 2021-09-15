@@ -1,3 +1,12 @@
+resource "digitalocean_project" "do_project" {
+  name = var.do_project_name
+}
+
+resource "digitalocean_project_resources" "do_project_resources" {
+  project = digitalocean_project.do_project.id
+  resources = [digitalocean_kubernetes_cluster.k8s.id]
+}
+
 resource "digitalocean_kubernetes_cluster" "k8s" {
   name    = var.do_k8s_name
   region  = var.do_region
@@ -17,3 +26,4 @@ resource "digitalocean_kubernetes_node_pool" "k8s_nodes" {
   size       = var.do_k8s_nodepool_type
   node_count = var.do_k8s_nodepool_size
 }
+
