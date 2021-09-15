@@ -1,3 +1,3 @@
-output "k8s_cluster" {
-  value = digitalocean_kubernetes_cluster.k8s
+output "k8s_cluster_name" {
+  value = digitalocean_kubernetes_cluster.k8s.name
 }
